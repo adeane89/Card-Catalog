@@ -6,7 +6,7 @@ namespace CardCatalog
     {
         static void Main(string[] args)
         {
-           
+
         }
     }
 }
