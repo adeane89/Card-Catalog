@@ -13,21 +13,31 @@ namespace CardCatalog
     {
         static void Main(string[] args)
         {
-
+            
             CardCatalog cardCat = new CardCatalog();
             cardCat._filename= "HP";
             
-            //Serialize...
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("Cardcat.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, cardCat);
-            stream.Close();
-            
-            //Deserialize...
-            Stream readStream = new FileStream("Cardcat.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            CardCatalog cardCat1 = (CardCatalog)formatter.Deserialize(readStream);
-            readStream.Close();
-            
-        }
-    }
+            /*            
+            List<Book> newBook = new List<Book>()
+            {
+                new Book() {Title = "Harry Potter", Author = "JK Rowling"},
+                new Book() {Title = "Dracula", Author = "Bram Stoker"},
+                new Book() {Title = "The Phantom of the Opera", Author = "Gaston LeRoux"}
+            };
+      
+            var alphabetizedBooks = from allbooks in newBook
+                    orderby allbooks.Title ascending
+                    select allbooks;
+
+            foreach (var item in alphabetizedBooks)
+            {
+                Console.WriteLine(item.Title+item.Author);
+            }
+            */
+
+            Console.ReadLine();
+
+        } 
+
+     }
 }

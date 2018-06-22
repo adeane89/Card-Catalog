@@ -28,17 +28,32 @@ namespace CardCatalog
             _filename = fileName;
         }
         //come back
-        public string ListBooks(string[] bookNames)
+        public static void ListBooks()
         {
-            return "a";
+            Book newbook = new Book();
+            List<Book> newBook = new List<Book>()
+            {
+                new Book() {Title = "Harry Potter", Author = "JK Rowling"},
+                new Book() {Title = "Dracula", Author = "Bram Stoker"},
+                new Book() {Title = "The Phantom of the Opera", Author = "Gaston LeRoux"}
+            };
+
+            var alphabetizedBooks = from allbooks in newBook
+                    orderby allbooks.Title ascending
+                    select allbooks;
+
+            foreach (var item in alphabetizedBooks)
+            {
+                Console.WriteLine("{0} written by {1}", item.Title, item.Author);
+            }
+            
         }
 
         public void AddBook(string title, string author)
         {
             Book newbook = new Book();
             newbook.Title = title;
-            newbook.Author = author;                       
-            
+            newbook.Author = author;                    
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
