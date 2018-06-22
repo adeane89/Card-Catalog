@@ -17,6 +17,6 @@ namespace CardCatalog
         public int ISBN { get; set; }
         public string Genre { get; set; }
         public int YearPublished { get; set; }
-
     }
+
 }
