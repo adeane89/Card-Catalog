@@ -33,9 +33,12 @@ namespace CardCatalog
             return "a";
         }
 
-        public string AddBook(string newBook)
+        public void AddBook(string title, string author)
         {
-            return newBook;
+            Book newbook = new Book();
+            newbook.Title = title;
+            newbook.Author = author;                       
+            
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

@@ -13,15 +13,18 @@ namespace CardCatalog
     {
         static void Main(string[] args)
         {
+
             CardCatalog cardCat = new CardCatalog();
             cardCat._filename= "HP";
             
+            //Serialize...
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("Cardcat.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, cardCat);
             stream.Close();
             
-            Stream readStream = new FileStream("Cardcat.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
+            //Deserialize...
+            Stream readStream = new FileStream("Cardcat.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             CardCatalog cardCat1 = (CardCatalog)formatter.Deserialize(readStream);
             readStream.Close();
             
