@@ -28,14 +28,20 @@ namespace CardCatalog
             _filename = fileName;
         }
         //come back
-        public string ListBooks(string[] bookNames)
+        public static string ListBooks()
         {
             return "a";
         }
 
-        public string AddBook(string newBook)
+        public static string AddBook()
         {
+
             return newBook;
+        }
+
+        public static void Save()
+        {
+
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

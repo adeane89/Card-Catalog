@@ -21,10 +21,29 @@ namespace CardCatalog
             formatter.Serialize(stream, cardCat);
             stream.Close();
             
-            Stream readStream = new FileStream("Cardcat.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
+            Stream readStream = new FileStream("Cardcat.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             CardCatalog cardCat1 = (CardCatalog)formatter.Deserialize(readStream);
             readStream.Close();
-            
+
+            //Prompt List Code
+            Console.WriteLine("1. List All books",
+                "2. Add A Book",
+                "3. Save and Exit");
+            string promptAnswer = Console.ReadLine();
+            //int switchAnswer = int.Parse(promptAnswer);
+            switch (promptAnswer)
+            {
+                case "1":
+                    CardCatalog.ListBooks();
+                    break;
+                case "2":
+                    CardCatalog.AddBook();
+                    break;
+                case "3":
+                    CardCatalog.
+
+
+            }
         }
     }
 }
