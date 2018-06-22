@@ -9,23 +9,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CardCatalog
 {
-    [Serializable()]
-    public class CardCatalog : ISerializable
+    public class CardCatalog
     {
-        //private string _filename;
-        public string _filename { get; set; }
-        private string[] books;
-
-        public CardCatalog()
-        {
-            //empty constructor required to compile
-        }
+        public static string _filename { get; set; }
+        private string [] books = { "book1", "book2" };
         
         public CardCatalog(string fileName)
         {
-            Console.WriteLine("Please enter the name of a file: ");
-            fileName = Console.ReadLine();
             _filename = fileName;
+            /*??
+            //deserialize...
+            Stream readStream = new FileStream(_filename, FileMode.Open, FileAccess.Read, FileShare.Read);
+            CardCatalog cardCat1 = (CardCatalog)formatter.Deserialize(readStream);
+            readStream.Close();
+            readStream.Dispose();
+            */
         }
         //come back
         public static void ListBooks(Book addList = null)
@@ -54,19 +52,23 @@ namespace CardCatalog
             {
                 Console.WriteLine("{0} written by {1}", item.Title, item.Author);
             }
-            
         }
 
-        public void AddBook(string title, string author)
+        public void AddBook()
         {
             Book addNewBook = new Book() { Title = title, Author = author};
 
             ListBooks(addNewBook);
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        public void Save()
         {
-
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(_filename, FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, this.books);
+            stream.Close();
+            stream.Dispose();
+            
         }
     }
 }

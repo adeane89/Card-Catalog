@@ -13,33 +13,44 @@ namespace CardCatalog
     {
         static void Main(string[] args)
         {
+            //Prompt List Code
+            Console.WriteLine("Please enter a file name: ");
+            string file = Console.ReadLine();
+            CardCatalog cardCat = new CardCatalog(file);
             
-            CardCatalog cardCat = new CardCatalog();
-            cardCat._filename= "HP";
-                      
-            List<Book> newBook = new List<Book>()
+            string promptAnswer = "";
+            do
             {
-                new Book() {Title = "Harry Potter", Author = "JK Rowling"},
-                new Book() {Title = "Dracula", Author = "Bram Stoker"},
-                new Book() {Title = "The Phantom of the Opera", Author = "Gaston LeRoux"}
-            };
-
-            newBook.Add(new Book() { Title = "Wuthering Heights", Author = "Charlotte Bronte"});
-            newBook.Add(new Book() { Title = "Animal Farm", Author = "George Orwell" });
-      
-            var alphabetizedBooks = from allbooks in newBook
-                    orderby allbooks.Title ascending
-                    select allbooks;
-
-            foreach (var item in alphabetizedBooks)
-            {
-                Console.WriteLine(item.Title+" "+item.Author);
-            }
+                string[] lines = {"Please hit 1, 2, or 3 then enter: ",
+                "1. List All books",
+                "2. Add A Book",
+                "3. Save and Exit"};
+                foreach (string line in lines)
+                {
+                    Console.WriteLine(line);
+                }
+                try
+                {
+                    promptAnswer = Console.ReadLine();
+                    switch (promptAnswer)
+                    {
+                        case "1":
+                            cardCat.ListBooks();
+                            break;
+                        case "2":
+                            cardCat.AddBook();
+                            break;
+                        case "3":
+                            cardCat.Save();
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            } while (promptAnswer != "3") ;
             
-
-            Console.ReadLine();
-
-        } 
-
-     }
+        }
+    }
 }
