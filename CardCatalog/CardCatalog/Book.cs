@@ -9,13 +9,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CardCatalog
 {
+    [Serializable]
     class Book
     {
         public string Title { get; set; }
         public string Author { get; set; }
         public int ISBN { get; set; }
         public string Genre { get; set; }
-        public int YearPulished { get; set; }
+        public int YearPublished { get; set; }
 
     }
 }

@@ -13,37 +13,44 @@ namespace CardCatalog
     {
         static void Main(string[] args)
         {
-            CardCatalog cardCat = new CardCatalog();
-            cardCat._filename= "HP";
-            
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("Cardcat.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, cardCat);
-            stream.Close();
-            
-            Stream readStream = new FileStream("Cardcat.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            CardCatalog cardCat1 = (CardCatalog)formatter.Deserialize(readStream);
-            readStream.Close();
-
             //Prompt List Code
-            Console.WriteLine("1. List All books",
-                "2. Add A Book",
-                "3. Save and Exit");
-            string promptAnswer = Console.ReadLine();
-            //int switchAnswer = int.Parse(promptAnswer);
-            switch (promptAnswer)
+            Console.WriteLine("Please enter a file name: ");
+            string file = Console.ReadLine();
+            CardCatalog cardCat = new CardCatalog(file);
+            
+            string promptAnswer = "";
+            do
             {
-                case "1":
-                    CardCatalog.ListBooks();
-                    break;
-                case "2":
-                    CardCatalog.AddBook();
-                    break;
-                case "3":
-                    CardCatalog.
-
-
-            }
+                string[] lines = {"Please hit 1, 2, or 3 then enter: ",
+                "1. List All books",
+                "2. Add A Book",
+                "3. Save and Exit"};
+                foreach (string line in lines)
+                {
+                    Console.WriteLine(line);
+                }
+                try
+                {
+                    promptAnswer = Console.ReadLine();
+                    switch (promptAnswer)
+                    {
+                        case "1":
+                            cardCat.ListBooks();
+                            break;
+                        case "2":
+                            cardCat.AddBook();
+                            break;
+                        case "3":
+                            cardCat.Save();
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            } while (promptAnswer != "3") ;
+            
         }
     }
 }
