@@ -26,7 +26,7 @@ namespace CardCatalog
             */
         }
         //come back
-        public static void ListBooks()
+        public void ListBooks()
         {
             Book newbook = new Book();
             List<Book> newBook = new List<Book>()
@@ -50,8 +50,8 @@ namespace CardCatalog
         public void AddBook()
         {
             Book newbook = new Book();
-            newbook.Title = title;
-            newbook.Author = author;                    
+            newbook.Title = "";
+            newbook.Author = "";                    
         }
 
         public void Save()
