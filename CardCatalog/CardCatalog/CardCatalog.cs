@@ -28,15 +28,23 @@ namespace CardCatalog
             _filename = fileName;
         }
         //come back
-        public static void ListBooks()
+        public static void ListBooks(Book addList = null)
         {
-            Book newbook = new Book();
             List<Book> newBook = new List<Book>()
             {
                 new Book() {Title = "Harry Potter", Author = "JK Rowling"},
                 new Book() {Title = "Dracula", Author = "Bram Stoker"},
                 new Book() {Title = "The Phantom of the Opera", Author = "Gaston LeRoux"}
             };
+
+            if(addList == null)
+            {
+                
+            }
+            else
+            {
+                newBook.Add(addList);
+            }
 
             var alphabetizedBooks = from allbooks in newBook
                     orderby allbooks.Title ascending
@@ -51,9 +59,9 @@ namespace CardCatalog
 
         public void AddBook(string title, string author)
         {
-            Book newbook = new Book();
-            newbook.Title = title;
-            newbook.Author = author;                    
+            Book addNewBook = new Book() { Title = title, Author = author};
+
+            ListBooks(addNewBook);
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

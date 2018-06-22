@@ -16,14 +16,16 @@ namespace CardCatalog
             
             CardCatalog cardCat = new CardCatalog();
             cardCat._filename= "HP";
-            
-            /*            
+                      
             List<Book> newBook = new List<Book>()
             {
                 new Book() {Title = "Harry Potter", Author = "JK Rowling"},
                 new Book() {Title = "Dracula", Author = "Bram Stoker"},
                 new Book() {Title = "The Phantom of the Opera", Author = "Gaston LeRoux"}
             };
+
+            newBook.Add(new Book() { Title = "Wuthering Heights", Author = "Charlotte Bronte"});
+            newBook.Add(new Book() { Title = "Animal Farm", Author = "George Orwell" });
       
             var alphabetizedBooks = from allbooks in newBook
                     orderby allbooks.Title ascending
@@ -31,9 +33,9 @@ namespace CardCatalog
 
             foreach (var item in alphabetizedBooks)
             {
-                Console.WriteLine(item.Title+item.Author);
+                Console.WriteLine(item.Title+" "+item.Author);
             }
-            */
+            
 
             Console.ReadLine();
 
