@@ -18,5 +18,4 @@ namespace CardCatalog
         public string Genre { get; set; }
         public int YearPublished { get; set; }
     }
-
 }
