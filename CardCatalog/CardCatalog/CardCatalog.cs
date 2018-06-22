@@ -26,7 +26,7 @@ namespace CardCatalog
             */
         }
         //come back
-        public static void ListBooks(Book addList = null)
+        public void ListBooks(Book addList = null)
         {
             List<Book> newBook = new List<Book>()
             {
@@ -54,7 +54,7 @@ namespace CardCatalog
             }
         }
 
-        public void AddBook()
+        public void AddBook(string title, string author)
         {
             Book addNewBook = new Book() { Title = title, Author = author};
 

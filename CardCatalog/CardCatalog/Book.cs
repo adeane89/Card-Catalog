@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace CardCatalog
 {
     [Serializable]
-    class Book
+    public class Book
     {
         public string Title { get; set; }
         public string Author { get; set; }
