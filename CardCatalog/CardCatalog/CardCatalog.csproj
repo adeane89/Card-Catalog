@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="C:\Users\jorda\source\repos\HelloWorld\CardCatalog.cs" Link="CardCatalog.cs" />
+  </ItemGroup>
+
 </Project>

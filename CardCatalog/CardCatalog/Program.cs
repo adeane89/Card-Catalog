@@ -38,7 +38,7 @@ namespace CardCatalog
                             cardCat.ListBooks();
                             break;
                         case "2":
-                            cardCat.AddBook("sample title", "sample author");
+                            cardCat.AddBook();
                             break;
                         case "3":
                             cardCat.Save();
